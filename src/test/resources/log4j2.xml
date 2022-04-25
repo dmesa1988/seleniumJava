@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Properties>
+		<Property name="DefaultPattern">
+			%d{ABSOLUTE} %5p %c{1}: %m%n
+		</Property>
+
+		<Property name="DefaultLogDirectoryPath">
+			target/logs
+		</Property>
+	</Properties>
+
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${DefaultPattern}" />
+		</Console>
+
+		<File name="file"
+			fileName="${DefaultLogDirectoryPath}/application.log">
+			<PatternLayout pattern="${DefaultPattern}" />
+		</File>
+	</Appenders>
+
+	<Loggers>
+		<Root level="ALL">
+			<AppenderRef ref="file" />
+		</Root>
+		<Logger name="config" level="DEBUG">
+			<AppenderRef ref="file" />
+		</Logger>
+		<Logger name="helper" level="DEBUG">
+			<AppenderRef ref="file" />
+		</Logger>		
+		<Logger name="pages" level="DEBUG">
+			<AppenderRef ref="file" />
+		</Logger>
+		<Logger name="suites" level="DEBUG">
+			<AppenderRef ref="file" />
+		</Logger>
+	</Loggers>
+</Configuration>
